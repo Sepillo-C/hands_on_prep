@@ -1,12 +1,37 @@
+import { useState } from "react";
+
 function Home() {
+    const [count, setCount] = useState(0);
+
+    let award = "";
+
+    if (count >= 5) {
+        award = "Great Job";
+    }
+
     return (
-        <body>
-        <h1>HomePage</h1>
-        <h3>Counter</h3>
-        <h3>0</h3>
-        <button>Increase</button>
-        <button>Decrease</button>
-        </body>
+        <div>
+            <h1>HomePage</h1>
+            <h3>Counter</h3>
+            <h3>{count}</h3>
+            <h3>{award}</h3>
+            
+            <button onClick={() => {
+                if (count < 5) {
+                    setCount(count + 1);
+                }
+            }}>
+                Increase
+            </button>
+
+            <button onClick={() => {
+                if (count > 0) {
+                    setCount(count - 1);
+                }
+            }}>
+                Decrease
+            </button>
+        </div>
     );
 }
 
